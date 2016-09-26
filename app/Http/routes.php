@@ -14,12 +14,12 @@
 Route::get('/', 'PostsController@index');
 
 Route::get('/auth', function(){
-	$user = \App\User::find(1);
-	Auth::login($user);
-
-	if(Auth::check()){
-		return "Oi";
+	
+	if(Auth::attempt(['email' => 'alisson.echo@gmail.com', 'password' => 123456])){
+		return "oi";
 	}
+
+	return "Falhou";
 
 });
 
