@@ -13,7 +13,21 @@
 
 Route::get('/', 'PostsController@index');
 
-Route::group(['prefix' => 'admin'], function(){
+Route::get('/auth', function(){
+	$user = \App\User::find(1);
+	Auth::login($user);
+
+	if(Auth::check()){
+		return "Oi";
+	}
+
+});
+
+Route::get('/auth/logout', function(){
+	Auth::logout();
+});
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 	Route::group(['prefix' => 'posts'], function(){
 
