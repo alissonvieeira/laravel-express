@@ -11,21 +11,22 @@
 |
 */
 
-Route::get('/', 'PostsController@index');
+//Route::get('/', 'PostsController@index');
 
-Route::get('/auth', function(){
+//Route::get('/auth', function(){
 	
-	if(Auth::attempt(['email' => 'alisson.echo@gmail.com', 'password' => 123456])){
-		return "oi";
-	}
+//	if(Auth::attempt(['email' => 'alisson.echo@gmail.com', 'password' => 123456])){
+//		return "oi";
+//	}
 
-	return "Falhou";
+//	return "Falhou";
 
-});
+//	});
 
-Route::get('/auth/logout', function(){
-	Auth::logout();
-});
+Route::controllers([
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController',
+]);
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
