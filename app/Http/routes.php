@@ -27,8 +27,6 @@ Route::controllers([
 ]);
 
 
-Route::get('/', 'PostsAdminController@index');
-
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 	Route::group(['prefix' => 'posts'], function(){
