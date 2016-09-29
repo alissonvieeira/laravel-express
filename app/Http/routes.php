@@ -11,7 +11,7 @@
 |
 */
 
-//Route::get('/', 'PostsController@index');
+Route::get('/', 'PostsController@index');
 
 //Route::get('/auth', function(){
 	
