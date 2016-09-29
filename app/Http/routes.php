@@ -18,15 +18,16 @@
 //	if(Auth::attempt(['email' => 'alisson.echo@gmail.com', 'password' => 123456])){
 //		return "oi";
 //	}
-
-//	return "Falhou";
-
+ 
 //	});
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+
+Route::get('/', 'PostsAdminController@index');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
